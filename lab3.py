@@ -33,7 +33,7 @@ signal = Wave.sine(amp=5, freq=50, autolabel=True, label_prefix='Sygnał modulow
 carrier = Wave.sine(amp=10, freq=100, autolabel=True, label_prefix='Fala nośna: ')
 modulated_signal = signal.amplitude_modulation(carrier)
 modulated_signal.label = 'Sygnał zmodulowany'
-modulated_signal_spectrum = modulated_signal.freq_spectrum()
+modulated_signal_spectrum = modulated_signal.amplitude_spectrum()
 modulated_signal_spectrum.label = 'Widmo sygnału zmodulowanego'
 
 figure()
@@ -47,7 +47,7 @@ signal = Wave.sine(amp=2, freq=50, autolabel=True, label_prefix='Sygnał modulow
 carrier = Wave.sine(amp=3, freq=100, autolabel=True, label_prefix='Fala nośna: ')
 modulated_signal = signal.frequency_modulation(carrier)
 modulated_signal.label = 'Sygnał zmodulowany'
-modulated_signal_spectrum = modulated_signal.freq_spectrum()
+modulated_signal_spectrum = modulated_signal.amplitude_spectrum()
 modulated_signal_spectrum.label = 'Widmo sygnału zmodulowanego'
 
 figure()
@@ -61,7 +61,7 @@ signal = Wave.sine(amp=1, freq=80, autolabel=True, label_prefix='Sygnał modulow
 carrier = Wave.sine(amp=3, freq=100, autolabel=True, label_prefix='Fala nośna: ')
 modulated_signal = signal.phase_modulation(carrier)
 modulated_signal.label = 'Sygnał zmodulowany'
-modulated_signal_spectrum = modulated_signal.freq_spectrum()
+modulated_signal_spectrum = modulated_signal.amplitude_spectrum()
 modulated_signal_spectrum.label = 'Widmo sygnału zmodulowanego'
 
 figure()

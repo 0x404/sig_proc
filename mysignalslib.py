@@ -98,11 +98,11 @@ class Wave(object):
                 new_wave.label = None
         return new_wave
 
-    def freq_spectrum(self, use_fft=True):
+    def amplitude_spectrum(self, use_fft=True):
+        N = len(self.values)
         if use_fft:
             transform = fft(self.values)
         else:
-            N = len(self.values)
             transform = zeros(N, dtype=complex)
             for m in range(self.fs):
                 sum = 0
@@ -111,9 +111,7 @@ class Wave(object):
                     sum += self.values[n] * (cos(inner) + 1j * sin(inner))
                 transform[m] = sum
         transform_abs = [abs(x) for x in transform]
-        N = len(transform_abs)
-        values = [transform_abs[f] / self.fs / pi for f in range(int(self.fs / 2))]
-        values = [val for val in values if val > 1e-15]
+        values = [transform_abs[f] / N for f in range(int(self.fs / 2)+1)]
         return self.__class__(values)
 
     def amplitude_modulation(self, carrier):
