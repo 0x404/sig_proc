@@ -99,7 +99,6 @@ def multiplot(*subplots, others=[], x_range=None):
     colors = inf_iter(['turquoise', 'hotpink', 'dodgerblue', 'slateblue', 'darkorchid'])
     for index, subplot in enumerate(subplots):
         plot = pyplot.subplot2grid(grid_size, (index, 0))
-        pyplot.hold(True)
         pyplot.grid(True)
         for wave in subplot:
             wave.plot(next(colors))
@@ -114,6 +113,8 @@ def multiplot(*subplots, others=[], x_range=None):
         plot = pyplot.subplot2grid(grid_size, (len(subplots) + index, 0))
         pyplot.grid(True)
         other.plot(next(colors))
+        pyplot.ylim([min(other.values), max(other.values)])
+        pyplot.xlim([0, len(other.values)])
         pyplot.tick_params(axis='y', labelsize=9)
         pyplot.tick_params(axis='x', labelsize=9)
         pyplot.legend(ncol=3, loc='upper center', bbox_to_anchor=(0.5, 1.15))

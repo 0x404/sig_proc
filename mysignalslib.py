@@ -26,7 +26,7 @@ class Wave(object):
         if self.domain:
             pyplot.plot(self.domain, self.values, *args, **kwargs)
         else:
-            pyplot.plot(self.values, *args, **kwargs)
+            pyplot.plot(range(0, len(self.values)), self.values, *args, **kwargs)
 
     @classmethod
     def x_range(cls, *args):

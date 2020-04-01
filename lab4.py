@@ -15,7 +15,7 @@ rc('figure', figsize=(8.27, 11.7), dpi=100)
 rc('savefig', bbox='tight')
 rc('legend', fontsize=10, fancybox=True)
 rc('text', usetex=True)
-rc('text.latex', unicode=True, preamble=r'\usepackage[T1]{polski}')
+rc('text.latex', preamble=r'\usepackage[T1]{polski}')
 
 pdf_pages = PdfPages('pdf/lab4.pdf')
 
